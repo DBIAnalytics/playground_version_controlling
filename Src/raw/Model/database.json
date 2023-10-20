@@ -182,6 +182,19 @@
                 "value": "Automatic"
               }
             ]
+          },
+          {
+            "name": "Benutzerdefiniert.1",
+            "dataType": "string",
+            "sourceColumn": "Benutzerdefiniert.1",
+            "lineageTag": "28e1c9f3-4ef7-4bea-abd5-9106f97f46cb",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -210,9 +223,10 @@
                 "    #\"Merged Queries2\" = Table.NestedJoin(#\"Renamed Columns1\", {\"kpi\"}, bv_dim_kpi, {\"kpi\"}, \"bv_dim_kpi\", JoinKind.LeftOuter),",
                 "    #\"Expanded bv_dim_kpi\" = Table.ExpandTableColumn(#\"Merged Queries2\", \"bv_dim_kpi\", {\"kpi_key\"}, {\"kpi_key\"}),",
                 "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Expanded bv_dim_kpi\",{\"kpi\", \"datekey\"}),",
-                "    #\"Hinzugefügte benutzerdefinierte Spalte\" = Table.AddColumn(#\"Removed Columns1\", \"Benutzerdefiniert\", each 1)",
+                "    #\"Hinzugefügte benutzerdefinierte Spalte\" = Table.AddColumn(#\"Removed Columns1\", \"Benutzerdefiniert\", each 1),",
+                "    #\"Hinzugefügte benutzerdefinierte Spalte1\" = Table.AddColumn(#\"Hinzugefügte benutzerdefinierte Spalte\", \"Benutzerdefiniert.1\", each 1)",
                 "in",
-                "    #\"Hinzugefügte benutzerdefinierte Spalte\""
+                "    #\"Hinzugefügte benutzerdefinierte Spalte1\""
               ]
             }
           }
@@ -220,7 +234,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           },
           {
             "name": "PBI_NavigationStepName",
@@ -284,6 +298,19 @@
                 "value": "Automatic"
               }
             ]
+          },
+          {
+            "name": "Benutzerdefiniert",
+            "dataType": "string",
+            "sourceColumn": "Benutzerdefiniert",
+            "lineageTag": "cfbf3a6a-f9f4-417f-bede-527c20fbd150",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -297,9 +324,10 @@
                 "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),",
                 "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],",
                 "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],",
-                "    bv_dim_salesterritory_Table = training_Schema{[Name=\"bv_dim_salesterritory\",Kind=\"Table\"]}[Data]",
+                "    bv_dim_salesterritory_Table = training_Schema{[Name=\"bv_dim_salesterritory\",Kind=\"Table\"]}[Data],",
+                "    #\"Hinzugefügte benutzerdefinierte Spalte\" = Table.AddColumn(bv_dim_salesterritory_Table, \"Benutzerdefiniert\", each 1)",
                 "in",
-                "    bv_dim_salesterritory_Table"
+                "    #\"Hinzugefügte benutzerdefinierte Spalte\""
               ]
             }
           }
@@ -308,6 +336,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ]
       },
@@ -576,10 +608,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ]
       },
@@ -931,15 +959,20 @@
           "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),",
           "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],",
           "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],",
-          "    bv_dim_productcategory_Table = training_Schema{[Name=\"bv_dim_productcategory\",Kind=\"Table\"]}[Data]",
+          "    bv_dim_productcategory_Table = training_Schema{[Name=\"bv_dim_productcategory\",Kind=\"Table\"]}[Data],",
+          "    #\"Hinzugefügte benutzerdefinierte Spalte\" = Table.AddColumn(bv_dim_productcategory_Table, \"Benutzerdefiniert\", each 1)",
           "in",
-          "    bv_dim_productcategory_Table"
+          "    #\"Hinzugefügte benutzerdefinierte Spalte\""
         ],
         "lineageTag": "4849ea33-d2db-414c-868c-dc7987f2759a",
         "annotations": [
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ]
       },
