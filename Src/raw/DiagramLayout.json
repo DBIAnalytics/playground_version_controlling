@@ -1,0 +1,106 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 496.08526782809122,
+            "y": 405.88794640480188
+          },
+          "nodeIndex": "bv_fact_sales",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 156.43597934351737
+          },
+          "nodeIndex": "bv_dim_date",
+          "size": {
+            "height": 188.64266182821126,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 530.78941130690293,
+            "y": 49.326660153361338
+          },
+          "nodeIndex": "bv_dim_datetype",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 906.45183512174458,
+            "y": 645.2743189415271
+          },
+          "nodeIndex": "bv_dim_saleschannel",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 636.7493764175091
+          },
+          "nodeIndex": "bv_dim_salesterritory",
+          "size": {
+            "height": 184.45599888343349,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 405.93388592722476
+          },
+          "nodeIndex": "bv_dim_kpi",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1473.4986639163687,
+            "y": 615.87858534339728
+          },
+          "nodeIndex": "Total_Single",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70.95554390096882,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,140 @@
+{
+  "name": "7b4b5d6bfa5ae72e1769",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 217.6,
+        "y": 98.13333333333334,
+        "z": 0,
+        "width": 843.37777777777774,
+        "height": 123.73333333333333
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "tableEx",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "Total_Single._TRAINING_REVENUE"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_REVENUE_VJ"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_COST"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_COST_VJ"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_NI"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_NI_VJ"
+        },
+        {
+          "queryRef": "bv_dim_date.Year"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Total_Single",
+          "Type": 0
+        },
+        {
+          "Name": "b",
+          "Entity": "bv_dim_date",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_REVENUE"
+          },
+          "Name": "Total_Single._TRAINING_REVENUE"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_COST"
+          },
+          "Name": "Total_Single._TRAINING_COST"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_NI"
+          },
+          "Name": "Total_Single._TRAINING_NI"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "b"
+              }
+            },
+            "Property": "Year"
+          },
+          "Name": "bv_dim_date.Year"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_COST_VJ"
+          },
+          "Name": "Total_Single._TRAINING_COST_VJ"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_REVENUE_VJ"
+          },
+          "Name": "Total_Single._TRAINING_REVENUE_VJ"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_NI_VJ"
+          },
+          "Name": "Total_Single._TRAINING_NI_VJ"
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "filterSortOrder": 3,
+    "hasDefaultSort": true
+  }
+}
