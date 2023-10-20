@@ -25,7 +25,35 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"044a596e7af571f34502\",\"layouts\":[{\"id\":0,\"position\":{\"x\":69.92727272727274,\"y\":420,\"width\":300,\"height\":300,\"z\":2}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"bv_dim_date.Year\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Year\"},\"Name\":\"bv_dim_date.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 300.00,
+          "width": 300.00,
+          "x": 69.93,
+          "y": 420.00,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"07f434a08e42544de811\",\"layouts\":[{\"id\":0,\"position\":{\"x\":807.5636363636364,\"y\":420,\"width\":300,\"height\":300,\"z\":1}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"bv_dim_date.Month\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Month\"},\"Name\":\"bv_dim_date.Month\",\"NativeReferenceName\":\"Month\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 300.00,
+          "width": 300.00,
+          "x": 807.56,
+          "y": 420.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"98b55c1b30f73f486af4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":382.9454545454546,\"y\":3.5999999999999943,\"width\":300,\"height\":300,\"z\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"bv_dim_date.Date\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date\"},\"Name\":\"bv_dim_date.Date\",\"NativeReferenceName\":\"Date\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 300.00,
+          "width": 300.00,
+          "x": 382.95,
+          "y": 3.60,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     },
     {
