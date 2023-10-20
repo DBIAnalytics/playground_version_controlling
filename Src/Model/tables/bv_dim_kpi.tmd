@@ -1,0 +1,36 @@
+table bv_dim_kpi
+	lineageTag: 4af56fa3-12a4-4e74-936f-e6b6d9955cc7
+	ordinal: 8
+
+	partition 'bv_dim_kpi-6d451a9a-a922-45b1-a6fc-9e3da75e7664' = M
+		mode: Import
+		expression:=
+			let
+			    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("JcpLDoAgDEXRvXTMxN9qCIMGUZsAJbQkLl+B4Xn3WQstk5ZKPoCBBZyxoKwYS+WzefUs+od1BMEYBBO33LdtnvHF1LkPXjXQ/XQf4NwH", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [kpi = _t, kpi_key = _t]),
+			    #"Changed Type" = Table.TransformColumnTypes(Source,{{"kpi", type text}, {"kpi_key", Int64.Type}})
+			in
+			    #"Changed Type"
+
+	column kpi
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: f28b4061-a967-4fd0-abaa-81f2e64eba57
+		sourceColumn: kpi
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi_key
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 9c49bbb2-e7d3-443b-8c54-1140feaaaf07
+		sourceColumn: kpi_key
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

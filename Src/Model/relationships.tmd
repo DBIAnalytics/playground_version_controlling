@@ -1,0 +1,28 @@
+relationship '78eae8f8-289e-4c02-b9e5-022c19c23bad'
+	fromColumn: bv_fact_sales.salesterritorykey
+	toColumn: bv_dim_salesterritory.salesterritorykey
+
+relationship '00460987-cf6f-4243-bbf4-ac3f91e99429'
+	fromColumn: bv_fact_sales.sales_channel_key
+	toColumn: bv_dim_saleschannel.sales_channel_key
+
+relationship 'aebaf1c6-4e8d-40eb-9db8-ff6c90a79fdd'
+	fromColumn: bv_fact_sales.datetypekey
+	toColumn: bv_dim_datetype.datetypekey
+
+relationship '492095e5-f23a-44ad-b062-beca4b2138b7'
+	fromColumn: bv_fact_sales.kpi_key
+	toColumn: bv_dim_kpi.kpi_key
+
+relationship 'ea6290a2-2c40-4a06-b028-7bd275c5c745'
+	fromColumn: bv_fact_sales.customerkey
+	toColumn: bv_dim_customer.customerkey
+
+relationship 'f3b41816-bee8-4055-b0c4-a30d43ac3210'
+	fromColumn: bv_fact_sales.productkey
+	toColumn: bv_dim_product.productkey
+
+relationship '339eed13-4169-4e9f-9cac-9ad32401901e'
+	fromColumn: bv_fact_sales.datetimekey
+	toColumn: bv_dim_date.datekey
+

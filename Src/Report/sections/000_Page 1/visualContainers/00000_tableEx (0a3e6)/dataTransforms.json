@@ -1,0 +1,116 @@
+{
+  "projectionOrdering": {
+    "Values": [
+      0,
+      1,
+      2
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Date",
+        "Name": "bv_dim_date.Date",
+        "Type": 4,
+        "Format": "d"
+      },
+      {
+        "Restatement": "_TRAINING_NI",
+        "Name": "Total_Single._TRAINING_NI",
+        "Type": 1
+      },
+      {
+        "Restatement": "_TRAINING_NI_RUNNING_TOTAL",
+        "Name": "Total_Single._TRAINING_RUNNING_TOTAL",
+        "Type": 1
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 2,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Date",
+      "format": "d",
+      "queryName": "bv_dim_date.Date",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 519
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "bv_dim_date"
+            }
+          },
+          "Property": "Date"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI",
+      "queryName": "Total_Single._TRAINING_NI",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI_RUNNING_TOTAL",
+      "queryName": "Total_Single._TRAINING_RUNNING_TOTAL",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI_RUNNING_TOTAL"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "projectionOrdering": {
+    "Values": [
+      0,
+      5,
+      1,
+      4,
+      2,
+      6,
+      3
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "_TRAINING_REVENUE",
+        "Name": "Total_Single._TRAINING_REVENUE",
+        "Type": 1
+      },
+      {
+        "Restatement": "_TRAINING_COST",
+        "Name": "Total_Single._TRAINING_COST",
+        "Type": 1
+      },
+      {
+        "Restatement": "_TRAINING_NI",
+        "Name": "Total_Single._TRAINING_NI",
+        "Type": 1
+      },
+      {
+        "Restatement": "Year",
+        "Name": "bv_dim_date.Year",
+        "Type": 3,
+        "Format": "0"
+      },
+      {
+        "Restatement": "_TRAINING_COST_VJ",
+        "Name": "Total_Single._TRAINING_COST_VJ",
+        "Type": 1
+      },
+      {
+        "Restatement": "_TRAINING_REVENUE_VJ",
+        "Name": "Total_Single._TRAINING_REVENUE_VJ",
+        "Type": 1
+      },
+      {
+        "Restatement": "_TRAINING_NI_VJ",
+        "Name": "Total_Single._TRAINING_NI_VJ",
+        "Type": 1
+      }
+    ],
+    "Filters": [
+      {
+        "type": 0,
+        "expression": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bv_dim_date"
+              }
+            },
+            "Property": "Year"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 5,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 4,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 2,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 6,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 3,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "_TRAINING_REVENUE",
+      "queryName": "Total_Single._TRAINING_REVENUE",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_REVENUE"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_COST",
+      "queryName": "Total_Single._TRAINING_COST",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_COST"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI",
+      "queryName": "Total_Single._TRAINING_NI",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI"
+        }
+      }
+    },
+    {
+      "displayName": "Year",
+      "format": "0",
+      "queryName": "bv_dim_date.Year",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "bv_dim_date"
+            }
+          },
+          "Property": "Year"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_COST_VJ",
+      "queryName": "Total_Single._TRAINING_COST_VJ",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_COST_VJ"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_REVENUE_VJ",
+      "queryName": "Total_Single._TRAINING_REVENUE_VJ",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_REVENUE_VJ"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI_VJ",
+      "queryName": "Total_Single._TRAINING_NI_VJ",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI_VJ"
+        }
+      }
+    }
+  ]
+}

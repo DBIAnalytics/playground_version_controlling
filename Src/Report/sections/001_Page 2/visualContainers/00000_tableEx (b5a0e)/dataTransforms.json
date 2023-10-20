@@ -1,0 +1,99 @@
+{
+  "projectionOrdering": {
+    "Values": [
+      0,
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Month",
+        "Name": "bv_dim_date.Month",
+        "Type": 3,
+        "Format": "0"
+      },
+      {
+        "Restatement": "_TRAINING_NI",
+        "Name": "Total_Single._TRAINING_NI",
+        "Type": 1
+      }
+    ],
+    "Filters": [
+      {
+        "type": 0,
+        "expression": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bv_dim_date"
+              }
+            },
+            "Property": "Year"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Month",
+      "format": "0",
+      "queryName": "bv_dim_date.Month",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "bv_dim_date"
+            }
+          },
+          "Property": "Month"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI",
+      "queryName": "Total_Single._TRAINING_NI",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI"
+        }
+      }
+    }
+  ]
+}

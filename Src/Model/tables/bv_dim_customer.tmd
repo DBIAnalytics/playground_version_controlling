@@ -1,0 +1,37 @@
+table bv_dim_customer
+	lineageTag: cf3e1f4d-2839-4798-adb2-df2ff700ff93
+	ordinal: 2
+
+	partition 'bv_dim_customer-9004583b-fe36-471d-bf41-e819311fae6d' = M
+		mode: Import
+		expression:=
+			let
+			    Query2 = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+			    axadev_Database = Query2{[Name="axadev",Kind="Database"]}[Data],
+			    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
+			    bv_dim_customer_Table = training_Schema{[Name="bv_dim_customer",Kind="Table"]}[Data]
+			in
+			    bv_dim_customer_Table
+
+	column customerkey
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 66a89473-ce1a-4aca-89f1-e270eff096cb
+		sourceColumn: customerkey
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column industrialsector
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: f9a5a3b1-016c-4466-b68b-323917e95289
+		sourceColumn: industrialsector
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

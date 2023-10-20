@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Filter94d53db397aa30ff527d",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "bv_dim_date"
+          }
+        },
+        "Property": "Year"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 1,
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "ordinal": 2
+  }
+]

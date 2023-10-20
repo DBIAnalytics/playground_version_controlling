@@ -1,0 +1,11 @@
+{
+  "Version": 3,
+  "ReportSettings": {
+    "IsRelationshipAutodetectionEnabled": false,
+    "IsQnaEnabledForThisFile": false
+  },
+  "QueriesSettings": {
+    "TypeDetectionEnabled": true,
+    "Version": "2.110.1161.0"
+  }
+}

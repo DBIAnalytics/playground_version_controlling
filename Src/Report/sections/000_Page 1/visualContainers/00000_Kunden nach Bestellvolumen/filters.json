@@ -1,0 +1,104 @@
+[
+  {
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "bv_dim_customer"
+          }
+        },
+        "Property": "customerkey"
+      }
+    },
+    "filter": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "subquery",
+          "Expression": {
+            "Subquery": {
+              "Query": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "b",
+                    "Entity": "bv_dim_customer",
+                    "Type": 0
+                  },
+                  {
+                    "Name": "t",
+                    "Entity": "Total_Single",
+                    "Type": 0
+                  }
+                ],
+                "Select": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "b"
+                        }
+                      },
+                      "Property": "customerkey"
+                    },
+                    "Name": "field"
+                  }
+                ],
+                "OrderBy": [
+                  {
+                    "Direction": 2,
+                    "Expression": {
+                      "Measure": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "t"
+                          }
+                        },
+                        "Property": "_TRAINING_NI"
+                      }
+                    }
+                  }
+                ],
+                "Top": 10
+              }
+            }
+          },
+          "Type": 2
+        },
+        {
+          "Name": "b",
+          "Entity": "bv_dim_customer",
+          "Type": 0
+        }
+      ],
+      "Where": [
+        {
+          "Condition": {
+            "In": {
+              "Expressions": [
+                {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Source": "b"
+                      }
+                    },
+                    "Property": "customerkey"
+                  }
+                }
+              ],
+              "Table": {
+                "SourceRef": {
+                  "Source": "subquery"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "type": "TopN",
+    "howCreated": 0,
+    "isHiddenInViewMode": false
+  }
+]

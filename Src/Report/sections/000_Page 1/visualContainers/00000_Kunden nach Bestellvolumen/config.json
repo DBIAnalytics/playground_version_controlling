@@ -1,0 +1,90 @@
+{
+  "name": "fab59d3531a09b286e42",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 607.812865497076,
+        "y": 0,
+        "z": 1000,
+        "width": 464.093567251462,
+        "height": 302.40935672514621
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "tableEx",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "bv_dim_customer.customerkey"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_NI"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "b",
+          "Entity": "bv_dim_customer",
+          "Type": 0
+        },
+        {
+          "Name": "t",
+          "Entity": "Total_Single",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "b"
+              }
+            },
+            "Property": "customerkey"
+          },
+          "Name": "bv_dim_customer.customerkey"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_NI"
+          },
+          "Name": "Total_Single._TRAINING_NI"
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Kunden nach Bestellvolumen'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

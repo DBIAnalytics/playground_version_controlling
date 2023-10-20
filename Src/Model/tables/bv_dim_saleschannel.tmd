@@ -1,0 +1,42 @@
+table bv_dim_saleschannel
+	lineageTag: 2ea05e55-9f5a-48c3-88b8-a7b26708cbe4
+	ordinal: 5
+
+	partition 'bv_dim_saleschannel-2be128c3-d403-4a0a-af08-bd0e48ce588f' = M
+		mode: Import
+		expression:=
+			let
+			    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+			    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
+			    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
+			    bv_fact_sales_Table = training_Schema{[Name="bv_fact_sales",Kind="Table"]}[Data],
+			    #"Removed Other Columns" = Table.SelectColumns(bv_fact_sales_Table,{"saleschannel"}),
+			    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+			    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+			    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "sales_channel_key"}})
+			in
+			    #"Renamed Columns"
+
+	column saleschannel
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: ba1ff9ac-eb25-4421-9a4c-49ad4ab73bba
+		sourceColumn: saleschannel
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_channel_key
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: dbc83231-821b-45b0-8763-0bada9e2889c
+		sourceColumn: sales_channel_key
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

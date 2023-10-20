@@ -1,0 +1,82 @@
+{
+  "name": "0a3e60e3a59662019ccc",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 9.9555555555555557,
+        "y": 0,
+        "z": 0,
+        "width": 465.06666666666666,
+        "height": 576
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "tableEx",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "bv_dim_date.Date"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_NI"
+        },
+        {
+          "queryRef": "Total_Single._TRAINING_RUNNING_TOTAL"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "b",
+          "Entity": "bv_dim_date",
+          "Type": 0
+        },
+        {
+          "Name": "t",
+          "Entity": "Total_Single",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "b"
+              }
+            },
+            "Property": "Date"
+          },
+          "Name": "bv_dim_date.Date"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_NI"
+          },
+          "Name": "Total_Single._TRAINING_NI"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "_TRAINING_NI_RUNNING_TOTAL"
+          },
+          "Name": "Total_Single._TRAINING_RUNNING_TOTAL"
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

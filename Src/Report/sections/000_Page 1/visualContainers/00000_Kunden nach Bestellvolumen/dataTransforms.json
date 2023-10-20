@@ -1,0 +1,97 @@
+{
+  "projectionOrdering": {
+    "Values": [
+      0,
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "customerkey",
+        "Name": "bv_dim_customer.customerkey",
+        "Type": 2048
+      },
+      {
+        "Restatement": "_TRAINING_NI",
+        "Name": "Total_Single._TRAINING_NI",
+        "Type": 1
+      }
+    ],
+    "Filters": [
+      {
+        "type": 5,
+        "expression": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bv_dim_customer"
+              }
+            },
+            "Property": "customerkey"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "customerkey",
+      "queryName": "bv_dim_customer.customerkey",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "bv_dim_customer"
+            }
+          },
+          "Property": "customerkey"
+        }
+      }
+    },
+    {
+      "displayName": "_TRAINING_NI",
+      "queryName": "Total_Single._TRAINING_NI",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Total_Single"
+            }
+          },
+          "Property": "_TRAINING_NI"
+        }
+      }
+    }
+  ]
+}
