@@ -1,0 +1,964 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"bv_fact_sales\",\"bv_dim_productcategory\",\"bv_dim_productsubcategory\",\"bv_dim_salesterritory\",\"bv_dim_saleschannel\",\"bv_dim_datetype\",\"bv_dim_date\",\"bv_dim_kpi\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.122.746.0 (23.10)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "bv_dim_productcategory",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let\r",
+          "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),\r",
+          "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],\r",
+          "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],\r",
+          "    bv_dim_productcategory_Table = training_Schema{[Name=\"bv_dim_productcategory\",Kind=\"Table\"]}[Data]\r",
+          "in\r",
+          "    bv_dim_productcategory_Table"
+        ],
+        "kind": "m",
+        "lineageTag": "4849ea33-d2db-414c-868c-dc7987f2759a"
+      },
+      {
+        "name": "bv_dim_productsubcategory",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let\r",
+          "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),\r",
+          "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],\r",
+          "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],\r",
+          "    bv_dim_productsubcategory_Table = training_Schema{[Name=\"bv_dim_productsubcategory\",Kind=\"Table\"]}[Data]\r",
+          "in\r",
+          "    bv_dim_productsubcategory_Table"
+        ],
+        "kind": "m",
+        "lineageTag": "7863c1af-c3c5-4cca-90cb-3d86b16887ce"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "78eae8f8-289e-4c02-b9e5-022c19c23bad",
+        "fromColumn": "salesterritorykey",
+        "fromTable": "bv_fact_sales",
+        "toColumn": "salesterritorykey",
+        "toTable": "bv_dim_salesterritory"
+      },
+      {
+        "name": "00460987-cf6f-4243-bbf4-ac3f91e99429",
+        "fromColumn": "sales_channel_key",
+        "fromTable": "bv_fact_sales",
+        "toColumn": "sales_channel_key",
+        "toTable": "bv_dim_saleschannel"
+      },
+      {
+        "name": "aebaf1c6-4e8d-40eb-9db8-ff6c90a79fdd",
+        "fromColumn": "datetypekey",
+        "fromTable": "bv_fact_sales",
+        "toColumn": "datetypekey",
+        "toTable": "bv_dim_datetype"
+      },
+      {
+        "name": "492095e5-f23a-44ad-b062-beca4b2138b7",
+        "fromColumn": "kpi_key",
+        "fromTable": "bv_fact_sales",
+        "toColumn": "kpi_key",
+        "toTable": "bv_dim_kpi"
+      },
+      {
+        "name": "339eed13-4169-4e9f-9cac-9ad32401901e",
+        "fromColumn": "datetimekey",
+        "fromTable": "bv_fact_sales",
+        "toColumn": "datekey",
+        "toTable": "bv_dim_date"
+      }
+    ],
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "bv_fact_sales",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "salesterritorykey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f6de7d55-c8e9-4108-8151-d566173841ae",
+            "sourceColumn": "salesterritorykey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customerkey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "19adc94b-f7e2-4158-9688-7d35e9482548",
+            "sourceColumn": "customerkey",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "productkey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b06d1926-2c30-498b-a03e-63b12a0cbdfa",
+            "sourceColumn": "productkey",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "orderquantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "29839499-3e1d-4d35-9efd-bcaed8912b43",
+            "sourceColumn": "orderquantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "issample",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d73abd3d-e4fd-44c2-b197-11a28dceb5c6",
+            "sourceColumn": "issample",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sales_channel_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "61eb635a-e40b-48ec-b767-d06d88f275d8",
+            "sourceColumn": "sales_channel_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "datetypekey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ea360d8f-db4e-46ca-921d-6b34c5dafd0d",
+            "sourceColumn": "datetypekey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "913f5f59-76f1-4a92-9a0d-d3f72bba2637",
+            "sourceColumn": "kpi_value",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "kpi_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3cc85b61-10ac-4df4-a719-08289a338285",
+            "sourceColumn": "kpi_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "salesordernumber",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6d741c1a-3320-4d8e-a665-7f63f3e505ef",
+            "sourceColumn": "salesordernumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "datetimekey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b1087d71-d88c-4f89-b00f-b21d1912ca58",
+            "sourceColumn": "datetimekey",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "769c8191-868a-4168-a407-34e4e4acbb7f",
+        "partitions": [
+          {
+            "name": "bv_fact_sales-4e756681-063b-485d-bb2f-0917bf40b5cf",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),",
+                "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],",
+                "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],",
+                "    bv_fact_sales_raw_View = training_Schema{[Name=\"bv_fact_sales\",Kind=\"View\"]}[Data],",
+                "    #\"Merged Queries\" = Table.NestedJoin(bv_fact_sales_raw_View, {\"saleschannel\"}, bv_dim_saleschannel, {\"saleschannel\"}, \"bv_dim_saleschannel\", JoinKind.LeftOuter),",
+                "    #\"Expanded bv_dim_saleschannel\" = Table.ExpandTableColumn(#\"Merged Queries\", \"bv_dim_saleschannel\", {\"sales_channel_key\"}, {\"sales_channel_key\"}),",
+                "    #\"Unpivoted Columns\" = Table.UnpivotOtherColumns(#\"Expanded bv_dim_saleschannel\", {\"productkey\", \"customerkey\", \"salesterritorykey\", \"salesordernumber\", \"orderquantity\", \"unitprice\", \"totalproductcost\", \"salesamount\", \"taxamt\", \"freight\", \"orderdatekey\", \"duedatekey\", \"shipdatekey\", \"issample\", \"saleschannel\", \"sales_channel_key\"}, \"Attribute\", \"Value\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Unpivoted Columns\",{{\"Value\", \"datekey\"}}),",
+                "    #\"Merged Queries1\" = Table.NestedJoin(#\"Renamed Columns\", {\"Attribute\"}, bv_dim_datetype, {\"Orginial String\"}, \"bv_dim_datetype\", JoinKind.LeftOuter),",
+                "    #\"Expanded bv_dim_datetype\" = Table.ExpandTableColumn(#\"Merged Queries1\", \"bv_dim_datetype\", {\"datetypekey\"}, {\"datetypekey\"}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Expanded bv_dim_datetype\",{\"Attribute\", \"saleschannel\", \"orderdatekey\", \"duedatekey\", \"shipdatekey\"}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Removed Columns\", \"datetimekey\", each Date.ToText([datekey], \"YYYYMMDD\")),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Added Custom\",{{\"datetimekey\", Int64.Type}}),",
+                "    #\"Unpivoted Columns1\" = Table.UnpivotOtherColumns(#\"Changed Type\", {\"productkey\", \"customerkey\", \"salesterritorykey\", \"salesordernumber\", \"orderquantity\", \"issample\", \"sales_channel_key\", \"datekey\", \"datetypekey\", \"datetimekey\"}, \"Attribute\", \"Value\"),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Unpivoted Columns1\",{{\"Attribute\", \"kpi\"}, {\"Value\", \"kpi_value\"}}),",
+                "    #\"Merged Queries2\" = Table.NestedJoin(#\"Renamed Columns1\", {\"kpi\"}, bv_dim_kpi, {\"kpi\"}, \"bv_dim_kpi\", JoinKind.LeftOuter),",
+                "    #\"Expanded bv_dim_kpi\" = Table.ExpandTableColumn(#\"Merged Queries2\", \"bv_dim_kpi\", {\"kpi_key\"}, {\"kpi_key\"}),",
+                "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Expanded bv_dim_kpi\",{\"kpi\", \"datekey\"})",
+                "in",
+                "    #\"Removed Columns1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bv_dim_salesterritory",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "salesterritorykey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "dfce6869-9857-42f5-9eff-f3a000e82b6f",
+            "sourceColumn": "salesterritorykey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "salesterritoryregion",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "53fd6f6d-fb29-4242-9643-0c0eec28ccac",
+            "sourceColumn": "salesterritoryregion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "salesterritorycountry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1da0e621-8a73-4891-868e-0c63ee46b64c",
+            "sourceColumn": "salesterritorycountry",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "salesterritorygroup",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "92b23529-5c22-413c-882c-28a113f2cff9",
+            "sourceColumn": "salesterritorygroup",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "652d2504-01f1-450a-a1fd-f4c319b81b8e",
+        "partitions": [
+          {
+            "name": "bv_dim_salesterritory-9e6f887d-7b0f-4169-bdbc-30a3ecc45085",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),",
+                "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],",
+                "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],",
+                "    bv_dim_salesterritory_Table = training_Schema{[Name=\"bv_dim_salesterritory\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    bv_dim_salesterritory_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bv_dim_saleschannel",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "saleschannel",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ba1ff9ac-eb25-4421-9a4c-49ad4ab73bba",
+            "sourceColumn": "saleschannel",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_channel_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "dbc83231-821b-45b0-8763-0bada9e2889c",
+            "sourceColumn": "sales_channel_key",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "2ea05e55-9f5a-48c3-88b8-a7b26708cbe4",
+        "partitions": [
+          {
+            "name": "bv_dim_saleschannel-2be128c3-d403-4a0a-af08-bd0e48ce588f",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Odbc.DataSource(\"dsn=PostgreSQL30\", [HierarchicalNavigation=true]),",
+                "    axadev_Database = Source{[Name=\"axadev\",Kind=\"Database\"]}[Data],",
+                "    training_Schema = axadev_Database{[Name=\"training\",Kind=\"Schema\"]}[Data],",
+                "    bv_fact_sales_Table = training_Schema{[Name=\"bv_fact_sales\",Kind=\"Table\"]}[Data],",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(bv_fact_sales_Table,{\"saleschannel\"}),",
+                "    #\"Removed Duplicates\" = Table.Distinct(#\"Removed Other Columns\"),",
+                "    #\"Added Index\" = Table.AddIndexColumn(#\"Removed Duplicates\", \"Index\", 1, 1, Int64.Type),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Added Index\",{{\"Index\", \"sales_channel_key\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bv_dim_datetype",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date Type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "67f74442-3d54-4625-afbf-2a6314ee25ec",
+            "sourceColumn": "Date Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "datetypekey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6cd70fc7-9e29-45c3-b2a5-937e960aef63",
+            "sourceColumn": "datetypekey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orginial String",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e9d63821-d930-4973-88bd-678e2bf95bad",
+            "sourceColumn": "Orginial String",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6665ff9d-222f-4145-bffc-710663a2003c",
+        "partitions": [
+          {
+            "name": "bv_dim_datetype-f89b3540-9c2e-4482-9f78-d36e252fe36a",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45W8i9KSS1ScEksSVXSUTIE4nyQQAqIH6sTrRSckVkAkzUC4mIgHy7pUpoKkzMG4pTSVIhULAA=\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#\"Date Type\" = _t, datetypekey = _t, #\"Orginial String\" = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Date Type\", type text}, {\"datetypekey\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bv_dim_date",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "e35ad97a-d2f7-44bb-8f04-cd5834b9f6d0",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "46aeafc4-4aa6-4df6-876d-15b862dd95d8",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "07710175-3b99-430c-926c-2290f2b4faa6",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "datekey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "FORMAT(bv_dim_date[Date],\"yyyymmdd\")",
+            "lineageTag": "87c72152-cecf-493c-bfeb-1385c7d69bf7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "402ff84a-ac9a-4dd0-ac42-389c5ae15a3d",
+        "partitions": [
+          {
+            "name": "bv_dim_date-c8412b1e-0811-4096-a4bc-7bd3fa94bc13",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    //Variabeln für Date Table",
+                "    StartDate = #date(2019, 01, 1) as date,",
+                "    EndDate = #date(2020, 12, 31) as date,",
+                "    Duration = Duration.Days(Duration.From(EndDate-StartDate))+1,",
+                "    Date = List.Dates(StartDate, Duration, #duration(1,0,0,0)),",
+                "    #\"Converted to Table\" = Table.FromList(Date, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Converted to Table\",{{\"Column1\", \"Date\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"Date\", type date}}),",
+                "    #\"Inserted Year\" = Table.AddColumn(#\"Changed Type\", \"Year\", each Date.Year([Date]), Int64.Type),",
+                "    #\"Inserted Month\" = Table.AddColumn(#\"Inserted Year\", \"Month\", each Date.Month([Date]), Int64.Type)",
+                "in",
+                "    #\"Inserted Month\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bv_dim_kpi",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "kpi",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f28b4061-a967-4fd0-abaa-81f2e64eba57",
+            "sourceColumn": "kpi",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9c49bbb2-e7d3-443b-8c54-1140feaaaf07",
+            "sourceColumn": "kpi_key",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "4af56fa3-12a4-4e74-936f-e6b6d9955cc7",
+        "partitions": [
+          {
+            "name": "bv_dim_kpi-6d451a9a-a922-45b1-a6fc-9e3da75e7664",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"JcpLDoAgDEXRvXTMxN9qCIMGUZsAJbQkLl+B4Xn3WQstk5ZKPoCBBZyxoKwYS+WzefUs+od1BMEYBBO33LdtnvHF1LkPXjXQ/XQf4NwH\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [kpi = _t, kpi_key = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"kpi\", type text}, {\"kpi_key\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Total_Single",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "c0d631730ef54e3d9d7c504cc8b89f48"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isNameInferred": false,
+            "lineageTag": "4aeb4575-40ba-404c-b3e5-d29f36ffe727",
+            "sourceColumn": "[ID]",
+            "summarizeBy": "count",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isNameInferred": false,
+            "lineageTag": "4109c977-4bdb-4579-b02e-55e8dc832425",
+            "sourceColumn": "[Name]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "7b903677-0797-4189-8ea0-80ae9367099a",
+        "measures": [
+          {
+            "name": "_SWITCH_TOTAL_SINGLE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              " VAR selection =",
+              "    SELECTEDVALUE ( Total_Single[ID],1 )",
+              "        var total = [Sales]",
+              "        var single = [HN_8320]",
+              "",
+              "RETURN",
+              "    SWITCH (",
+              "        TRUE (),",
+              "        selection = 1, total,",
+              "        selection = 2, single, ",
+              "        BLANK ()",
+              "    )"
+            ],
+            "lineageTag": "87efc739-37a3-46c1-a1b0-3cb7444665a0"
+          },
+          {
+            "name": "Sales",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE(SUM(bv_fact_sales[kpi_value]), bv_dim_kpi[kpi_key] = 3)",
+            "lineageTag": "a0d8573a-d2be-42e3-8857-7350a1e76a48"
+          },
+          {
+            "name": "HN_8320",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "     [Sales], bv_dim_product[productkey] = 74)"
+            ],
+            "lineageTag": "fe029e6f-cd17-4cf6-adc8-ecb6190b1ad7"
+          },
+          {
+            "name": "_TRAINING_NI",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "    [_TRAINING_REVENUE] - [_TRAINING_COST],  bv_dim_date[Year] = MAX ( bv_dim_date[Year] ))"
+            ],
+            "lineageTag": "bf946977-9aa7-4a5c-8e8c-4f361b75460c"
+          },
+          {
+            "name": "_TRAINING_NI_VJ",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE (",
+              "    [_TRAINING_NI],",
+              "    DATEADD ( bv_dim_date[Date], -1, YEAR ),",
+              "    ALL ( bv_dim_date )",
+              ")"
+            ],
+            "lineageTag": "0ef0eb44-188c-4026-b222-54d9251f9ed4"
+          },
+          {
+            "name": "_TRAINING_DELTA_ABS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "IF([_TRAINING_NI_VJ] = BLANK(),",
+              "    BLANK(),",
+              "    [_TRAINING_NI] - [_TRAINING_NI_VJ])"
+            ],
+            "lineageTag": "c231e0f7-c5b6-4c92-b4d4-45d56cb3129c"
+          },
+          {
+            "name": "_TRAINING_NI_RUNNING_TOTAL",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "     [_TRAINING_NI], ",
+              "     FILTER(ALL(bv_dim_date), ",
+              "     bv_dim_date[Date] <= MAX(bv_dim_date[Date])))"
+            ],
+            "lineageTag": "ed94d1d4-173f-4aaf-a0f2-f7ad4cbc7f9e"
+          },
+          {
+            "name": "_TRAINING_COUNT_ROWS",
+            "expression": "COUNTROWS(bv_fact_sales)",
+            "formatString": "0",
+            "lineageTag": "3cd1b793-5cc5-42ec-90fe-6335644ba540"
+          },
+          {
+            "name": "_TRAINING_ORDER_DATE",
+            "expression": [
+              "",
+              "CALCULATE(FIRSTDATE(bv_dim_date[Date]),",
+              "FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 2))"
+            ],
+            "formatString": "General Date",
+            "lineageTag": "58b61f5a-3c4d-4b1e-8e4c-75a5bac1df35"
+          },
+          {
+            "name": "_TRAINING_SHIP_DATE",
+            "expression": [
+              "",
+              "CALCULATE(FIRSTDATE(bv_dim_date[Date]),",
+              "FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 3))"
+            ],
+            "formatString": "General Date",
+            "lineageTag": "0b8d1ca7-9eec-44ba-8ebb-ebd6d784cfc0"
+          },
+          {
+            "name": "_TRAINING_DIFF",
+            "expression": [
+              "DATEDIFF(",
+              "    DATE(YEAR([_TRAINING_ORDER_DATE]), MONTH([_TRAINING_ORDER_DATE]),1), [_TRAINING_ORDER_DATE], DAY)"
+            ],
+            "formatString": "0",
+            "lineageTag": "d9f00df7-bdfa-40dc-b92c-571c07b7b04f"
+          },
+          {
+            "name": "_TRAINING_REVENUE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "     SUM(bv_fact_sales[kpi_value]), bv_fact_sales[kpi_key] = 1",
+              "     ,  bv_dim_date[Year] = MAX ( bv_dim_date[Year] ))"
+            ],
+            "lineageTag": "9e205c64-e6e9-4914-9e68-7c5b85d9830e"
+          },
+          {
+            "name": "_TRAINING_COST",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "         SUM(bv_fact_sales[kpi_value]), bv_dim_kpi[kpi_key] = 2 || bv_dim_kpi[kpi_key] = 4 || bv_dim_kpi[kpi_key] = 5 ,  bv_dim_date[Year] = MAX ( bv_dim_date[Year] ))"
+            ],
+            "lineageTag": "9ce01afd-6742-4958-8f1b-3801303a5207"
+          },
+          {
+            "name": "_TRAINING_COST_VJ",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE (",
+              "    [_TRAINING_COST],",
+              "    DATEADD ( bv_dim_date[Date], -1, YEAR ),",
+              "    ALL ( bv_dim_date )",
+              ")"
+            ],
+            "lineageTag": "dbe56cad-f49b-46e1-95db-8b324339d111"
+          },
+          {
+            "name": "_TRAINING_REVENUE_VJ",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE (",
+              "    [_TRAINING_REVENUE],",
+              "    DATEADD ( bv_dim_date[Date], -1, YEAR ),",
+              "    ALL ( bv_dim_date )",
+              ")"
+            ],
+            "lineageTag": "aa2484c3-593f-4dbe-8063-556ba34911fd"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Total_Single-0385d524-18ab-42b6-9516-fdb49ed7be30",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "DATATABLE(\"ID\",INTEGER, \"Name\",STRING,",
+                "{",
+                "{1,\"Total\"},",
+                "{2,\"HN-8320\"}",
+                "})"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

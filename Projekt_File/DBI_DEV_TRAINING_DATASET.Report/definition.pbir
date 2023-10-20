@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../DBI_DEV_TRAINING_DATASET.Dataset"
+    },
+    "byConnection": null
+  }
+}

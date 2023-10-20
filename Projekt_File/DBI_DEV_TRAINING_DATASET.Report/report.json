@@ -1,0 +1,83 @@
+{
+  "config": "{\"version\":\"5.37\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY22SU09\",\"version\":\"5.39\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"pauseQueries\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY22SU09",
+            "path": "BaseThemes/CY22SU09.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection01fb7e1f17ab93935d3b",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"7b4b5d6bfa5ae72e1769\",\"layouts\":[{\"id\":0,\"position\":{\"x\":217.6,\"y\":98.13333333333334,\"z\":0,\"width\":843.3777777777777,\"height\":123.73333333333333}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Total_Single._TRAINING_REVENUE\"},{\"queryRef\":\"Total_Single._TRAINING_REVENUE_VJ\"},{\"queryRef\":\"Total_Single._TRAINING_COST\"},{\"queryRef\":\"Total_Single._TRAINING_COST_VJ\"},{\"queryRef\":\"Total_Single._TRAINING_NI\"},{\"queryRef\":\"Total_Single._TRAINING_NI_VJ\"},{\"queryRef\":\"bv_dim_date.Year\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Total_Single\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_REVENUE\"},\"Name\":\"Total_Single._TRAINING_REVENUE\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_COST\"},\"Name\":\"Total_Single._TRAINING_COST\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_NI\"},\"Name\":\"Total_Single._TRAINING_NI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Year\"},\"Name\":\"bv_dim_date.Year\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_COST_VJ\"},\"Name\":\"Total_Single._TRAINING_COST_VJ\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_REVENUE_VJ\"},\"Name\":\"Total_Single._TRAINING_REVENUE_VJ\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_NI_VJ\"},\"Name\":\"Total_Single._TRAINING_NI_VJ\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"Filter94d53db397aa30ff527d\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"bv_dim_date\"}},\"Property\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":2}]",
+          "height": 123.73,
+          "width": 843.38,
+          "x": 217.60,
+          "y": 98.13,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"b5a0ecc4c86255aa661c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":122.31111111111112,\"y\":311.46666666666664,\"z\":1000,\"width\":273.06666666666666,\"height\":342.75555555555553}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"bv_dim_date.Month\"},{\"queryRef\":\"Total_Single._TRAINING_NI\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bv_dim_date\",\"Type\":0},{\"Name\":\"t\",\"Entity\":\"Total_Single\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Month\"},\"Name\":\"bv_dim_date.Month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"_TRAINING_NI\"},\"Name\":\"Total_Single._TRAINING_NI\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"Filter94d53db397aa30ff527d\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"bv_dim_date\"}},\"Property\":\"Year\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]},\"ordinal\":2}]",
+          "height": 342.76,
+          "width": 273.07,
+          "x": 122.31,
+          "y": 311.47,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Seite 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection81f445b3b052412a52f8",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"fdc9f3eba31749f040a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":0,\"width\":280,\"height\":280,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"TEST TEST TEST\"}]}]}}]}}}",
+          "filters": "[]",
+          "height": 280.00,
+          "width": 280.00,
+          "x": 10.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
