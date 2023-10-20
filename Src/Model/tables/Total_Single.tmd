@@ -11,33 +11,8 @@ table Total_Single
 			{2,"HN-8320"}
 			})
 
-	measure _SWITCH_TOTAL_SINGLE =
-		
-		 VAR selection =
-		    SELECTEDVALUE ( Total_Single[ID],1 )
-		        var total = [Sales]
-		        var single = [HN_8320]
-		
-		RETURN
-		    SWITCH (
-		        TRUE (),
-		        selection = 1, total,
-		        selection = 2, single, 
-		        BLANK ()
-		    )
-		lineageTag: 87efc739-37a3-46c1-a1b0-3cb7444665a0
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Sales = CALCULATE(SUM(bv_fact_sales[kpi_value]), bv_dim_kpi[kpi_key] = 3)
 		lineageTag: a0d8573a-d2be-42e3-8857-7350a1e76a48
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure HN_8320 =
-		CALCULATE(
-		     [Sales], bv_dim_product[productkey] = 74)
-		lineageTag: fe029e6f-cd17-4cf6-adc8-ecb6190b1ad7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

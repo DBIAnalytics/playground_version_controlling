@@ -15,9 +15,11 @@ table bv_dim_date
 			    #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "Date"}}),
 			    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}}),
 			    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
-			    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Date]), Int64.Type)
+			    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Date]), Int64.Type),
+			    #"Quartalsbeginn eingefügt" = Table.AddColumn(#"Inserted Month", "Quartalsbeginn", each Date.StartOfQuarter([Date]), type date),
+			    #"Quartalsende eingefügt" = Table.AddColumn(#"Quartalsbeginn eingefügt", "Quartalsende", each Date.EndOfQuarter([Date]), type date)
 			in
-			    #"Inserted Month"
+			    #"Quartalsende eingefügt"
 
 	column Date
 		dataType: DateTime
@@ -61,5 +63,31 @@ table bv_dim_date
 
 		annotation SummarizationSetBy = Automatic
 
+	column Quartalsbeginn
+		dataType: DateTime
+		formatString:= Long Date
+		isDataTypeInferred: false
+		lineageTag: 3a60031e-8fd3-4018-82a8-9688dbce2f44
+		sourceColumn: Quartalsbeginn
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Quartalsende
+		dataType: DateTime
+		formatString:= Long Date
+		isDataTypeInferred: false
+		lineageTag: 74fe2c91-116d-4357-8eec-e88e7a734288
+		sourceColumn: Quartalsende
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

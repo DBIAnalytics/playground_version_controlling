@@ -23,9 +23,10 @@ table bv_fact_sales
 			    #"Renamed Columns1" = Table.RenameColumns(#"Unpivoted Columns1",{{"Attribute", "kpi"}, {"Value", "kpi_value"}}),
 			    #"Merged Queries2" = Table.NestedJoin(#"Renamed Columns1", {"kpi"}, bv_dim_kpi, {"kpi"}, "bv_dim_kpi", JoinKind.LeftOuter),
 			    #"Expanded bv_dim_kpi" = Table.ExpandTableColumn(#"Merged Queries2", "bv_dim_kpi", {"kpi_key"}, {"kpi_key"}),
-			    #"Removed Columns1" = Table.RemoveColumns(#"Expanded bv_dim_kpi",{"kpi", "datekey"})
+			    #"Removed Columns1" = Table.RemoveColumns(#"Expanded bv_dim_kpi",{"kpi", "datekey"}),
+			    #"Hinzugefügte benutzerdefinierte Spalte" = Table.AddColumn(#"Removed Columns1", "Benutzerdefiniert", each 1)
 			in
-			    #"Removed Columns1"
+			    #"Hinzugefügte benutzerdefinierte Spalte"
 
 	column salesterritorykey
 		dataType: Int64
@@ -137,5 +138,16 @@ table bv_fact_sales
 
 		annotation SummarizationSetBy = Automatic
 
+	column Benutzerdefiniert
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 37377298-15c4-4902-b2f6-005c0d74ddf4
+		sourceColumn: Benutzerdefiniert
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
