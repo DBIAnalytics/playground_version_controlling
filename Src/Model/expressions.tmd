@@ -1,6 +1,6 @@
 expression bv_dim_productcategory =
 	let
-	    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+	    Source = Odbc.DataSource("dsn=PostgreSQL30", [HierarchicalNavigation=true]),
 	    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
 	    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
 	    bv_dim_productcategory_Table = training_Schema{[Name="bv_dim_productcategory",Kind="Table"]}[Data]
@@ -8,21 +8,17 @@ expression bv_dim_productcategory =
 	    bv_dim_productcategory_Table
 	lineageTag: 4849ea33-d2db-414c-868c-dc7987f2759a
 
-	annotation PBI_NavigationStepName = Navigation
-
 	annotation PBI_ResultType = Table
 
 expression bv_dim_productsubcategory =
 	let
-	    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+	    Source = Odbc.DataSource("dsn=PostgreSQL30", [HierarchicalNavigation=true]),
 	    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
 	    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
 	    bv_dim_productsubcategory_Table = training_Schema{[Name="bv_dim_productsubcategory",Kind="Table"]}[Data]
 	in
 	    bv_dim_productsubcategory_Table
 	lineageTag: 7863c1af-c3c5-4cca-90cb-3d86b16887ce
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

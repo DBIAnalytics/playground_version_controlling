@@ -8,14 +8,15 @@
   "queryMetadata": {
     "Select": [
       {
-        "Restatement": "customerkey",
-        "Name": "bv_dim_customer.customerkey",
-        "Type": 2048
+        "Restatement": "Anzahl von salesordernumber",
+        "Name": "bv_fact_sales.salesordernumber",
+        "Type": 3
       },
       {
-        "Restatement": "_TRAINING_NI",
-        "Name": "Total_Single._TRAINING_NI",
-        "Type": 1
+        "Restatement": "customerkey",
+        "Name": "bv_fact_sales.customerkey",
+        "Type": 3,
+        "Format": "0"
       }
     ],
     "Filters": [
@@ -25,10 +26,28 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "bv_dim_customer"
+                "Entity": "bv_fact_sales"
               }
             },
             "Property": "customerkey"
+          }
+        }
+      },
+      {
+        "type": 2,
+        "expression": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "bv_fact_sales"
+                  }
+                },
+                "Property": "salesordernumber"
+              }
+            },
+            "Function": 5
           }
         }
       }
@@ -52,44 +71,50 @@
   ],
   "selects": [
     {
-      "displayName": "customerkey",
-      "queryName": "bv_dim_customer.customerkey",
+      "displayName": "Anzahl von salesordernumber",
+      "queryName": "bv_fact_sales.salesordernumber",
       "roles": {
         "Values": true
       },
       "type": {
         "category": null,
-        "underlyingType": 1
+        "underlyingType": 260
+      },
+      "expr": {
+        "Aggregation": {
+          "Expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "bv_fact_sales"
+                }
+              },
+              "Property": "salesordernumber"
+            }
+          },
+          "Function": 5
+        }
+      }
+    },
+    {
+      "displayName": "customerkey",
+      "format": "0",
+      "queryName": "bv_fact_sales.customerkey",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
       },
       "expr": {
         "Column": {
           "Expression": {
             "SourceRef": {
-              "Entity": "bv_dim_customer"
+              "Entity": "bv_fact_sales"
             }
           },
           "Property": "customerkey"
-        }
-      }
-    },
-    {
-      "displayName": "_TRAINING_NI",
-      "queryName": "Total_Single._TRAINING_NI",
-      "roles": {
-        "Values": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 259
-      },
-      "expr": {
-        "Measure": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "Total_Single"
-            }
-          },
-          "Property": "_TRAINING_NI"
         }
       }
     }

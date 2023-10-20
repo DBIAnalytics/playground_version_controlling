@@ -1,5 +1,5 @@
 model Model
-	compatibilityLevel: 1550
+	compatibilityLevel: 1567
 	culture: en-US
 	dataAccessOptions:
 		legacyRedirects
@@ -7,9 +7,9 @@ model Model
 	defaultPowerBIDataSourceVersion: PowerBI_V3
 	sourceQueryCulture: en-GB
 
-annotation PBI_QueryOrder = ["bv_fact_sales","bv_dim_customer","bv_dim_product","bv_dim_productcategory","bv_dim_productsubcategory","bv_dim_salesterritory","bv_dim_saleschannel","bv_dim_datetype","bv_dim_date","bv_dim_kpi"]
+annotation PBI_QueryOrder = ["bv_fact_sales","bv_dim_productcategory","bv_dim_productsubcategory","bv_dim_salesterritory","bv_dim_saleschannel","bv_dim_datetype","bv_dim_date","bv_dim_kpi"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.114.864.0 (23.02)
+annotation PBIDesktopVersion = 2.122.746.0 (23.10)
 

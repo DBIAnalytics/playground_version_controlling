@@ -1,12 +1,12 @@
 table bv_dim_salesterritory
 	lineageTag: 652d2504-01f1-450a-a1fd-f4c319b81b8e
-	ordinal: 4
+	ordinal: 2
 
 	partition 'bv_dim_salesterritory-9e6f887d-7b0f-4169-bdbc-30a3ecc45085' = M
 		mode: Import
 		expression:=
 			let
-			    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+			    Source = Odbc.DataSource("dsn=PostgreSQL30", [HierarchicalNavigation=true]),
 			    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
 			    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
 			    bv_dim_salesterritory_Table = training_Schema{[Name="bv_dim_salesterritory",Kind="Table"]}[Data]
@@ -49,8 +49,6 @@ table bv_dim_salesterritory
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

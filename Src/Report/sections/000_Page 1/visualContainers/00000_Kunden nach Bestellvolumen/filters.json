@@ -4,7 +4,7 @@
       "Column": {
         "Expression": {
           "SourceRef": {
-            "Entity": "bv_dim_customer"
+            "Entity": "bv_fact_sales"
           }
         },
         "Property": "customerkey"
@@ -22,12 +22,7 @@
                 "From": [
                   {
                     "Name": "b",
-                    "Entity": "bv_dim_customer",
-                    "Type": 0
-                  },
-                  {
-                    "Name": "t",
-                    "Entity": "Total_Single",
+                    "Entity": "bv_fact_sales",
                     "Type": 0
                   }
                 ],
@@ -48,18 +43,23 @@
                   {
                     "Direction": 2,
                     "Expression": {
-                      "Measure": {
+                      "Aggregation": {
                         "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "b"
+                              }
+                            },
+                            "Property": "salesordernumber"
                           }
                         },
-                        "Property": "_TRAINING_NI"
+                        "Function": 5
                       }
                     }
                   }
                 ],
-                "Top": 10
+                "Top": 12
               }
             }
           },
@@ -67,7 +67,7 @@
         },
         {
           "Name": "b",
-          "Entity": "bv_dim_customer",
+          "Entity": "bv_fact_sales",
           "Type": 0
         }
       ],

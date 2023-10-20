@@ -1,12 +1,12 @@
 table bv_dim_saleschannel
 	lineageTag: 2ea05e55-9f5a-48c3-88b8-a7b26708cbe4
-	ordinal: 5
+	ordinal: 3
 
 	partition 'bv_dim_saleschannel-2be128c3-d403-4a0a-af08-bd0e48ce588f' = M
 		mode: Import
 		expression:=
 			let
-			    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+			    Source = Odbc.DataSource("dsn=PostgreSQL30", [HierarchicalNavigation=true]),
 			    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
 			    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
 			    bv_fact_sales_Table = training_Schema{[Name="bv_fact_sales",Kind="Table"]}[Data],
@@ -35,8 +35,6 @@ table bv_dim_saleschannel
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

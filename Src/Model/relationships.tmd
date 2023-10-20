@@ -14,14 +14,6 @@ relationship '492095e5-f23a-44ad-b062-beca4b2138b7'
 	fromColumn: bv_fact_sales.kpi_key
 	toColumn: bv_dim_kpi.kpi_key
 
-relationship 'ea6290a2-2c40-4a06-b028-7bd275c5c745'
-	fromColumn: bv_fact_sales.customerkey
-	toColumn: bv_dim_customer.customerkey
-
-relationship 'f3b41816-bee8-4055-b0c4-a30d43ac3210'
-	fromColumn: bv_fact_sales.productkey
-	toColumn: bv_dim_product.productkey
-
 relationship '339eed13-4169-4e9f-9cac-9ad32401901e'
 	fromColumn: bv_fact_sales.datetimekey
 	toColumn: bv_dim_date.datekey

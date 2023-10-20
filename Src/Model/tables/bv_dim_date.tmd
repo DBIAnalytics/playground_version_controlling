@@ -1,6 +1,6 @@
 table bv_dim_date
 	lineageTag: 402ff84a-ac9a-4dd0-ac42-389c5ae15a3d
-	ordinal: 7
+	ordinal: 5
 
 	partition 'bv_dim_date-c8412b1e-0811-4096-a4bc-7bd3fa94bc13' = M
 		mode: Import
@@ -31,7 +31,7 @@ table bv_dim_date
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation PBI_ChangedProperties = ["FormatString"]
+		changedProperty = FormatString
 
 	column Year
 		dataType: Int64
@@ -55,12 +55,11 @@ table bv_dim_date
 
 	column datekey = FORMAT(bv_dim_date[Date],"yyyymmdd")
 		dataType: String
+		isDataTypeInferred: false
 		lineageTag: 87c72152-cecf-493c-bfeb-1385c7d69bf7
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

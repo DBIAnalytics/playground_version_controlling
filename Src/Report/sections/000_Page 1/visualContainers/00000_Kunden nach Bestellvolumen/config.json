@@ -1,14 +1,14 @@
 {
-  "name": "fab59d3531a09b286e42",
+  "name": "21c9727fd9574a7c0720",
   "layouts": [
     {
       "id": 0,
       "position": {
-        "x": 607.812865497076,
-        "y": 0,
-        "z": 1000,
-        "width": 464.093567251462,
-        "height": 302.40935672514621
+        "x": 650.4727272727273,
+        "y": 477.09090909090907,
+        "z": 2000,
+        "width": 599.27272727272725,
+        "height": 228.07272727272726
       }
     }
   ],
@@ -17,10 +17,10 @@
     "projections": {
       "Values": [
         {
-          "queryRef": "bv_dim_customer.customerkey"
+          "queryRef": "bv_fact_sales.salesordernumber"
         },
         {
-          "queryRef": "Total_Single._TRAINING_NI"
+          "queryRef": "bv_fact_sales.customerkey"
         }
       ]
     },
@@ -29,16 +29,27 @@
       "From": [
         {
           "Name": "b",
-          "Entity": "bv_dim_customer",
-          "Type": 0
-        },
-        {
-          "Name": "t",
-          "Entity": "Total_Single",
+          "Entity": "bv_fact_sales",
           "Type": 0
         }
       ],
       "Select": [
+        {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "b"
+                  }
+                },
+                "Property": "salesordernumber"
+              }
+            },
+            "Function": 5
+          },
+          "Name": "bv_fact_sales.salesordernumber"
+        },
         {
           "Column": {
             "Expression": {
@@ -48,18 +59,7 @@
             },
             "Property": "customerkey"
           },
-          "Name": "bv_dim_customer.customerkey"
-        },
-        {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Source": "t"
-              }
-            },
-            "Property": "_TRAINING_NI"
-          },
-          "Name": "Total_Single._TRAINING_NI"
+          "Name": "bv_fact_sales.customerkey"
         }
       ]
     },

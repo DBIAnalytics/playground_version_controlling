@@ -1,6 +1,6 @@
 table Total_Single
 	lineageTag: 7b903677-0797-4189-8ea0-80ae9367099a
-	ordinal: 9
+	ordinal: 7
 
 	partition 'Total_Single-0385d524-18ab-42b6-9516-fdb49ed7be30' = Calculated
 		mode: Import
@@ -76,21 +76,21 @@ table Total_Single
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure _TRAINING_COUNT_ROWS = COUNTROWS(bv_fact_sales) 
+	measure _TRAINING_COUNT_ROWS = COUNTROWS(bv_fact_sales)
 		formatString:= 0
 		lineageTag: 3cd1b793-5cc5-42ec-90fe-6335644ba540
 
 	measure _TRAINING_ORDER_DATE =
 		
-		    CALCULATE(FIRSTDATE(bv_dim_date[Date]),
-		    FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 2))
+		CALCULATE(FIRSTDATE(bv_dim_date[Date]),
+		FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 2))
 		formatString:= General Date
 		lineageTag: 58b61f5a-3c4d-4b1e-8e4c-75a5bac1df35
 
 	measure _TRAINING_SHIP_DATE =
 		
-		    CALCULATE(FIRSTDATE(bv_dim_date[Date]),
-		    FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 3))
+		CALCULATE(FIRSTDATE(bv_dim_date[Date]),
+		FILTER(bv_fact_sales, bv_fact_sales[datetypekey] = 3))
 		formatString:= General Date
 		lineageTag: 0b8d1ca7-9eec-44ba-8ebb-ebd6d784cfc0
 
@@ -138,6 +138,8 @@ table Total_Single
 	column ID
 		dataType: Int64
 		formatString:= 0
+		isDataTypeInferred: false
+		isNameInferred: false
 		lineageTag: 4aeb4575-40ba-404c-b3e5-d29f36ffe727
 		sourceColumn: [ID]
 		summarizeBy: Count
@@ -146,6 +148,8 @@ table Total_Single
 
 	column Name
 		dataType: String
+		isDataTypeInferred: false
+		isNameInferred: false
 		lineageTag: 4109c977-4bdb-4579-b02e-55e8dc832425
 		sourceColumn: [Name]
 		summarizeBy: None

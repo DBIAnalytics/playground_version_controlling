@@ -1,6 +1,6 @@
 table bv_dim_datetype
 	lineageTag: 6665ff9d-222f-4145-bffc-710663a2003c
-	ordinal: 6
+	ordinal: 4
 
 	partition 'bv_dim_datetype-f89b3540-9c2e-4482-9f78-d36e252fe36a' = M
 		mode: Import
@@ -38,8 +38,6 @@ table bv_dim_datetype
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

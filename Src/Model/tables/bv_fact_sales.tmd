@@ -6,7 +6,7 @@ table bv_fact_sales
 		mode: Import
 		expression:=
 			let
-			    Source = Odbc.DataSource("dsn=dbi_dev_postgres" ,[HierarchicalNavigation=true]),
+			    Source = Odbc.DataSource("dsn=PostgreSQL30", [HierarchicalNavigation=true]),
 			    axadev_Database = Source{[Name="axadev",Kind="Database"]}[Data],
 			    training_Schema = axadev_Database{[Name="training",Kind="Schema"]}[Data],
 			    bv_fact_sales_raw_View = training_Schema{[Name="bv_fact_sales",Kind="View"]}[Data],
@@ -43,7 +43,7 @@ table bv_fact_sales
 		isDataTypeInferred: false
 		lineageTag: 19adc94b-f7e2-4158-9688-7d35e9482548
 		sourceColumn: customerkey
-		summarizeBy: None
+		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
 
@@ -53,7 +53,7 @@ table bv_fact_sales
 		isDataTypeInferred: false
 		lineageTag: b06d1926-2c30-498b-a03e-63b12a0cbdfa
 		sourceColumn: productkey
-		summarizeBy: None
+		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
 
